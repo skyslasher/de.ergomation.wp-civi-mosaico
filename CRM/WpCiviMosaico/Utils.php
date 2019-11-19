@@ -134,7 +134,6 @@ class CRM_WpCiviMosaico_Utils
                 // additional author info
                 $ajaxposts[ $key ]->author_info = CRM_WpCiviMosaico_Utils::getAuthors( $PostID );
                 $ajaxposts[ $key ]->author_images = CRM_WpCiviMosaico_Utils::getAuthorImages( $PostID );
-                $ajaxposts[ $key ]->authors = CRM_WpCiviMosaico_Utils::getAuthors( $PostID );
                 // reading time, if plugin exists
                 $ajaxposts[ $key ]->reading_time = CRM_WpCiviMosaico_Utils::getReadingTime( $PostID );
                 // featured image
