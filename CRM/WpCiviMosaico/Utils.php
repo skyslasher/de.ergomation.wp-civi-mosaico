@@ -40,7 +40,6 @@ class CRM_WpCiviMosaico_Utils
         $email = get_the_author_meta( 'user_email', $author_id );
     	return array(
     		"author" => get_the_author_meta( 'display_name', $author_id ),
-    		"description" => upgrade_get_author_description( $author_id ),
     		"url" => esc_url( get_author_posts_url( $author_id ) ),
     		"email" => $email,
             "image" => get_avatar_url( $author_id, array( "size" => 150, "height" => 150, "width" => 150, "default" => "blank" ) )
