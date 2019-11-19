@@ -6,7 +6,8 @@ This plugin integrates WordPress with the CiviCRM mail editor replacement Mosaic
 uses the Wordpress media library.
 It also contains an enhanced Versafix template with a new template block. This block comes with a
 property editor that shows all available Wordpress posts. It applies the post title, excerpt with
-adjustable length an a read more button with just one click.
+adjustable length an a read more button with just one click. In addition, section margins can be applied
+and href anchors can be set to allow an easy in-mail navigation via a TOC.
 
 ![Screenshot](/images/screenshot_2.png)
 Gallery reflecting Wordpress media in Mosaico
