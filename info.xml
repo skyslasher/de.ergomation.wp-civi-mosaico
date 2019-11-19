@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<extension key="de.ergomation.wp-civi-mosaico" type="module">
+  <file>wp_civi_mosaico</file>
+  <name>Wordpress integration for Mosaico in CiviCRM</name>
+  <description>Integrates the Mosaico Mail Editor with the WordPress media gallery and provides a drag and drop Wordpress posts template block</description>
+  <license>AGPL-3.0</license>
+  <maintainer>
+    <author>Andreas Hahn</author>
+    <email>andreas@ergomation.de</email>
+  </maintainer>
+  <urls>
+    <url desc="Main Extension Page">https://github.com/skyslasher/de.ergomation.wp-civi-mosaico</url>
+    <url desc="Documentation">https://github.com/skyslasher/de.ergomation.wp-civi-mosaico</url>
+    <url desc="Support">https://github.com/skyslasher/de.ergomation.wp-civi-mosaico</url>
+    <url desc="Licensing">http://www.gnu.org/licenses/agpl-3.0.html</url>
+  </urls>
+  <releaseDate>2019-11-19</releaseDate>
+  <version>1.0</version>
+  <develStage>beta</develStage>
+  <compatibility>
+    <ver>5.0</ver>
+  </compatibility>
+  <comments>Not for productive use</comments>
+  <civix>
+    <namespace>CRM/WpCiviMosaico</namespace>
+  </civix>
+</extension>

@@ -1,0 +1,24 @@
+
+.data-wp-posts select
+{
+    overflow:scroll;
+}
+.data-wp-posts option
+{
+    padding: 5px 0;
+    font-weight: 200;
+}
+.wp-post-pager
+{
+    margin: 6px 0 18px 0;
+    text-align: center;
+}
+.wp-post-pager .wp-post-pager-button-container
+{
+    display: inline-block;
+}
+
+.wp-post-pager .ui-button-text
+{
+    padding: 5px;
+}
