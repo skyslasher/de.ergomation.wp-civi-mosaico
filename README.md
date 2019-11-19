@@ -27,6 +27,13 @@ The extension is licensed under [AGPL-3.0](LICENSE.txt).
 * CivCRM FlexMailer plugin
 * CiviCRM Mosaico plugin
 
+## Optional Wordpress plugins
+
+This plugin can use functionality of these Wordpress plugins:
+* [Polylang (translations)](https://wordpress.org/plugins/polylang/)
+* [Co-Authors Plus (multiple post authors)](http://wordpress.org/extend/plugins/co-authors-plus/)
+* [Reading Time WP (estimated reading time for the full post)](https://wordpress.org/plugins/reading-time-wp/)
+
 ## Installation (Web UI)
 
 This extension has not yet been published for installation via the web UI.
