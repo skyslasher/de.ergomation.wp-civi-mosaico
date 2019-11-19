@@ -14,8 +14,8 @@ Gallery reflecting Wordpress media in Mosaico
 ![Screenshot](/images/screenshot_3.png)
 Corresponding Wordpress media gallery
 
-![Screenshot](/images/screenshot_3.png)
-Wordpress posts visible in Mosaico section plugin control
+![Screenshot](/images/screenshot_4.png)
+Wordpress posts view, visible in Mosaico section plugin control
 
 The extension is licensed under [AGPL-3.0](LICENSE.txt).
 
