@@ -4,7 +4,7 @@
  *
  * Nearly a 100% copy&paste from
  * https://github.com/civicrm/org.civicrm.flexmailer/blob/master/src/Listener/DefaultSender.php
- * except the function insert on line 51 to implement message composition with embedded images
+ * except the function insert around line 49 to implement message composition with embedded images
  *
  */
 
@@ -263,7 +263,7 @@ class CRM_WpCiviMosaico_EmbedHTMLImages
         }
         catch ( \Exception $e )
         {
-            self::logme( 'Error scanning for HTML images: ' . $e->getMessage() );
+            CRM_WpCiviMosaico_Utils::logme( 'Error scanning for HTML images: ' . $e->getMessage() );
             // todo: error message to frontend
         }
         libxml_clear_errors();
