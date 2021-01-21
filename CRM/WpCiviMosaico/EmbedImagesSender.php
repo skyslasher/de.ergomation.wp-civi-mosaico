@@ -205,7 +205,7 @@ class CRM_WpCiviMosaico_EmbedHTMLImages
 {
     const TRACKER_PARTS = [
       '/civicrm/extern/open.php',
-      '/civicrm/mailing/open/'
+      'civicrm/mailing/open',
     ];
     // compile a list of images in the HTML, replace in HTML with aliases,
     // return an array of filename => alias
@@ -252,7 +252,7 @@ class CRM_WpCiviMosaico_EmbedHTMLImages
                         $is_tracker = false;
                         foreach( self::TRACKER_PARTS as $tracker_part )
                         {
-                          if ( false !== strpos( $img_src_parts[ 'path' ], $tracker_part ) )
+                          if ( ( false !== strpos( $img_src_parts[ 'path' ], $tracker_part ) ) || ( false !== strpos( $img_src_parts[ 'query' ], $tracker_part ) ) )
                           {
                             $is_tracker = true;
                             break;
