@@ -203,6 +203,10 @@ class CRM_WpCiviMosaico_EmbedImagesSender extends \Civi\FlexMailer\Listener\Base
 
 class CRM_WpCiviMosaico_EmbedHTMLImages
 {
+    const TRACKER_PARTS = [
+      '/civicrm/extern/open.php',
+      '/civicrm/mailing/open/'
+    ];
     // compile a list of images in the HTML, replace in HTML with aliases,
     // return an array of filename => alias
     private static function scanHTMLforImages( &$html_body )
@@ -244,7 +248,17 @@ class CRM_WpCiviMosaico_EmbedHTMLImages
                         }
                         $path_parts = explode( '.', $img_src_parts[ 'path' ] );
                         $suffix = end( $path_parts );
-                        if ( ( 0 != strcasecmp( 'php', $suffix ) ) && ( 0 == strpos( $img_src_parts[ 'path' ], $uploaddir_parts[ 'path' ] ) ) )
+                        // ignore tracker pixels
+                        $is_tracker = false;
+                        foreach( self::TRACKER_PARTS as $tracker_part )
+                        {
+                          if ( false !== strpos( $img_src_parts[ 'path' ], $tracker_part ) )
+                          {
+                            $is_tracker = true;
+                            break;
+                          }
+                        }
+                        if ( ( !$is_tracker ) && ( 0 != strcasecmp( 'php', $suffix ) ) && ( 0 == strpos( $img_src_parts[ 'path' ], $uploaddir_parts[ 'path' ] ) ) )
                         {
                             // file is not a php file in our upload directory
                             $img_file_alias = str_replace( $uploaddir_parts[ 'path' ], '', $img_src_parts[ 'path' ] );
