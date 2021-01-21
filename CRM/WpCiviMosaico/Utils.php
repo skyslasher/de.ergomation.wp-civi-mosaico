@@ -10,10 +10,16 @@ class CRM_WpCiviMosaico_Utils
     	$dt = new DateTime();
     	file_put_contents( CRM_WpCiviMosaico_Utils::getPluginBaseDir() . '/log/wp_civi_mosaico.log',  "[" . $dt->format('Y-m-d\TH:i:s.u') . "] " . $line . "\n", FILE_APPEND | LOCK_EX );
     }
-    public static function __( $string = '' )
+    public static function __( $string = '', $PostID = 0 )
     {
         if ( function_exists( 'pll__' ) )
+        {
+            if ( 0 != $PostID )
+            {
+              return pll_translate_string( $string, pll_get_post_language( $PostID ) );
+            }
             return pll__( $string );
+        }
         return $string;
     }
     public static function pll_register_string( $desc = '', $phrase = '' )
@@ -89,16 +95,31 @@ class CRM_WpCiviMosaico_Utils
     	return $result;
     }
 
+    protected static function getAuthorFrom( $PostID )
+    {
+      return CRM_WpCiviMosaico_Utils::__( 'From', $PostID );
+    }
+
+    protected static function getAuthorConjunction( $PostID )
+    {
+      return CRM_WpCiviMosaico_Utils::__( 'and', $PostID );
+    }
+
     protected static function getReadingTime( $PostID )
     {
         if ( shortcode_exists( 'rt_reading_time' ) )
         {
-            $rt_string = CRM_WpCiviMosaico_Utils::__( 'Reading time:' );
-            $rt_time = CRM_WpCiviMosaico_Utils::__( 'minutes' );
-            $rt_time_singular = CRM_WpCiviMosaico_Utils::__( 'minute' );
+            $rt_string = CRM_WpCiviMosaico_Utils::__( 'Reading time:', $PostID );
+            $rt_time = CRM_WpCiviMosaico_Utils::__( 'minutes', $PostID );
+            $rt_time_singular = CRM_WpCiviMosaico_Utils::__( 'minute', $PostID );
             return ' (' . do_shortcode( '[rt_reading_time post_id="' . $PostID . '" label="' . $rt_string . '" postfix="' . $rt_time . '" postfix_singular="' . $rt_time_singular . '"]' ) . ')';
         }
         return '';
+    }
+
+    protected static function getReadingTimeCaption( $PostID )
+    {
+      return CRM_WpCiviMosaico_Utils::__( 'Continue reading', $PostID );
     }
 
     public static function getAjaxPosts()
@@ -134,8 +155,11 @@ class CRM_WpCiviMosaico_Utils
                 // additional author info
                 $ajaxposts[ $key ]->author_info = CRM_WpCiviMosaico_Utils::getAuthors( $PostID );
                 $ajaxposts[ $key ]->author_images = CRM_WpCiviMosaico_Utils::getAuthorImages( $PostID );
+                $ajaxposts[ $key ]->author_from = CRM_WpCiviMosaico_Utils::getAuthorFrom( $PostID );
+                $ajaxposts[ $key ]->author_conjunction = CRM_WpCiviMosaico_Utils::getAuthorConjunction( $PostID );
                 // reading time, if plugin exists
                 $ajaxposts[ $key ]->reading_time = CRM_WpCiviMosaico_Utils::getReadingTime( $PostID );
+                $ajaxposts[ $key ]->reading_time_caption = CRM_WpCiviMosaico_Utils::getReadingTimeCaption( $PostID );
                 // featured image
                 $ajaxposts[ $key ]->featured_image = get_the_post_thumbnail_url( $PostID, 'full' );
             }

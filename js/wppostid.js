@@ -30,8 +30,11 @@ function wordpressPostsWidgetPluginAjaxGetPosts( pageNum )
                             value[ "guid" ],
                             value[ "author_info" ],
                             value[ "author_images" ],
+                            value[ "author_from" ],
+                            value[ "author_conjunction" ],
                             value[ "featured_image" ],
-                            value[ "reading_time" ]
+                            value[ "reading_time" ],
+                            value[ "reading_time_caption" ]
                         );
                     }
                 );
@@ -72,7 +75,7 @@ var wordpressPostsWidgetPlugin = {
     viewModel: function( vm )
     {
         vm_self = vm;
-        function wpPostsPostObject( postID, postTitle, postContent, postLink, postAuthors, postAuthorImages, postFeaturedImage, postReadingTime )
+        function wpPostsPostObject( postID, postTitle, postContent, postLink, postAuthors, postAuthorImages, postAuthorFrom, postAuthorConjunction, postFeaturedImage, postReadingTime, postReadingTimeCaption )
         {
             var self = this;
             self.postID = postID;
@@ -81,8 +84,11 @@ var wordpressPostsWidgetPlugin = {
             self.postLink = postLink;
             self.postAuthors = postAuthors;
             self.postAuthorImages = postAuthorImages;
+            self.postAuthorFrom = postAuthorFrom;
+            self.postAuthorConjunction = postAuthorConjunction;
             self.postFeaturedImage = postFeaturedImage;
             self.postReadingTime = postReadingTime;
+            self.postReadingTimeCaption = postReadingTimeCaption;
             self.applyPostID = function()
             {
 
@@ -102,7 +108,7 @@ var wordpressPostsWidgetPlugin = {
                             }
                             if ( index == author_len - 2 )
                             {
-                                author_desc += ' und ';
+                                author_desc += ' ' + self.postAuthorConjunction + ' ';
                             }
                             // author images
                             author_img += '<table align="left" border="0" cellpadding="0" cellspacing="0"><tr>';
@@ -129,7 +135,7 @@ var wordpressPostsWidgetPlugin = {
                     }
                     excerpt = self.postContent.substring( 0, i ) + ' …';
                     read_more_link = self.postLink;
-                    read_more_text = "Weiterlesen" + self.postReadingTime + " &gt;";
+                    read_more_text = self.postReadingTimeCaption + self.postReadingTime + " &gt;";
                     read_more = ' <a href="' + self.postLink + '">' + read_more_text + '</a>';
                     contents = excerpt;
                 }
@@ -220,9 +226,9 @@ var wordpressPostsWidgetPlugin = {
         {
             vm_self.wpPostsAvailablePosts.removeAll();
         }
-        vm_self.wpPostsAvailablePostsAddPost = function( postID, postTitle, postContent, postLink, postAuthors, postAuthorImages, postFeaturedImage, postReadingTime )
+        vm_self.wpPostsAvailablePostsAddPost = function( postID, postTitle, postContent, postLink, postAuthors, postAuthorImages, postAuthorFrom, postAuthorConjunction, postFeaturedImage, postReadingTime, postReadingTimeCaption )
         {
-            vm_self.wpPostsAvailablePosts.push( new wpPostsPostObject( postID, postTitle, postContent, postLink, postAuthors, postAuthorImages, postFeaturedImage, postReadingTime ) );
+            vm_self.wpPostsAvailablePosts.push( new wpPostsPostObject( postID, postTitle, postContent, postLink, postAuthors, postAuthorImages, postAuthorFrom, postAuthorConjunction, postFeaturedImage, postReadingTime, postReadingTimeCaption ) );
         }
         vm_self.wpPostsPostSelected = function( post )
         {

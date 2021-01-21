@@ -58,6 +58,9 @@ function wp_civi_mosaico_civicrm_uninstall() {
  */
 function wp_civi_mosaico_civicrm_enable() {
   // provide translations to WP PolyLang plugin if installed
+  CRM_WpCiviMosaico_Utils::pll_register_string( 'From', 'from' );
+  CRM_WpCiviMosaico_Utils::pll_register_string( 'and', 'and' );
+  CRM_WpCiviMosaico_Utils::pll_register_string( 'Continue reading', 'Continue reading' );
   CRM_WpCiviMosaico_Utils::pll_register_string( 'Reading time:', 'Reading time:' );
   CRM_WpCiviMosaico_Utils::pll_register_string( 'minutes', 'minutes' );
   CRM_WpCiviMosaico_Utils::pll_register_string( 'minute', 'minute' );
