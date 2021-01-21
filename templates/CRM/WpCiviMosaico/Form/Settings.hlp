@@ -1,5 +1,5 @@
 {htxt id='wp_civi_mosaico_embed_images'}
-{ts}Enbale if you want images to be embedded into the email (inline images), not referenced as a link.
+{ts}Enable if you want images to be embedded into the email (inline images), not referenced as a link.
   This increases the email size but displays images in the client right away.
   Do not use if you want to use tracking mechanisms.{/ts}
 {/htxt}
