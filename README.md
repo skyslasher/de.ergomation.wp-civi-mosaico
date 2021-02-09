@@ -1,9 +1,8 @@
-# Wordpress integration for CiviMail with Mosaico
+# WordPress integration for CiviMail with Mosaico
 
 ![Screenshot](/images/screenshot.png)
 
-This plugin integrates WordPress with the CiviCRM mail editor replacement Mosaico. The gallery now
-uses the Wordpress media library.
+This [CiviCRM](https://civicrm.org) extension integrates WordPress with the CiviCRM mail editor replacement [Mosaico](https://civicrm.org/extensions/email-template-builder). The gallery now uses the WordPress media library.
 It also contains an enhanced Versafix template with a new template block. This block comes with a
 property editor that shows all available Wordpress posts. It applies the post title, excerpt with
 adjustable length an a read more button with just one click. In addition, section margins can be applied
@@ -23,13 +22,12 @@ The extension is licensed under [AGPL-3.0](LICENSE.txt).
 
 ## Requirements
 
-* PHP v7.0+
 * Wordpress v5.0+
-* CiviCRM 5.17
+* CiviCRM 5.x
 * CivCRM FlexMailer plugin
 * CiviCRM Mosaico plugin
 
-## Optional Wordpress plugins
+## Optional WordPress plugins
 
 This plugin can use functionality of these Wordpress plugins:
 * [Polylang (translations)](https://wordpress.org/plugins/polylang/)
